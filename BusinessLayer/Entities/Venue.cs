@@ -1,6 +1,6 @@
 ﻿using BusinessLayer.Enums;
 
-namespace BusinessLayer.Objects
+namespace BusinessLayer.Entities
 {
     public class Venue
     {

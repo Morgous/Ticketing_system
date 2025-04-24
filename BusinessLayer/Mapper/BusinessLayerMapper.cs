@@ -7,11 +7,11 @@ namespace BusinessLayer.Mapper
     {
         public BusinessLayerMapper()
         {
-            CreateMap<Objects.Event, Event>();
-            CreateMap<Event, Objects.Event>();
+            CreateMap<Entities.Event, Event>();
+            CreateMap<Event, Entities.Event>();
 
-            CreateMap<Objects.Venue, Venue>();
-            CreateMap<Venue, Objects.Venue>();
+            CreateMap<Entities.Venue, Venue>();
+            CreateMap<Venue, Entities.Venue>();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Ticketing_System.Models;
-using BusinessLayer.Objects;
+using BusinessLayer.Entities;
 
 namespace Ticketing_System.MappingProfiles
 {

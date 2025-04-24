@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Objects;
+﻿using BusinessLayer.Entities;
 
 namespace BusinessLayer.Services.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿namespace BusinessLayer.Objects
+﻿namespace BusinessLayer.Entities
 {
     public class VenueSeat
     {

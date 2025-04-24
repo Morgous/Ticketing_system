@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLayer.Interfaces;
-using BusinessLayer.Objects;
+using BusinessLayer.Entities;
 using DataAccessLayer.UnitOfWork.Interfaces;
 using Microsoft.Extensions.Logging;
 

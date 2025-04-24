@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BusinessLayer.Objects;
+using BusinessLayer.Entities;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.UnitOfWork.Interfaces;
 using Microsoft.Extensions.Logging;
