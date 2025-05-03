@@ -1,4 +1,4 @@
-﻿namespace BusinessLayer.Entities
+﻿namespace Ticketing_system.BusinessLayer.Entities
 {
     public class VenueSection
     {

@@ -1,6 +1,6 @@
-﻿using BusinessLayer.Enums;
+﻿using Ticketing_system.BusinessLayer.Enums;
 
-namespace BusinessLayer.Entities
+namespace Ticketing_system.BusinessLayer.Entities
 {
     public class Event
     {

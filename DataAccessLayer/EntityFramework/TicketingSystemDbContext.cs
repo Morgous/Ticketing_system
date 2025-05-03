@@ -68,13 +68,15 @@ namespace DataAccessLayer.EntityFramework
                 .HasOne(vs => vs.Row)
                 .WithMany(vr => vr.VenueSeats)
                 .HasForeignKey(vs => vs.RowId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<VenueSeat>()
                 .HasOne(vs => vs.SeatsType)
                 .WithMany(st => st.VenueSeats)
                 .HasForeignKey(vs => vs.SeatsTypeId)
-                .IsRequired();
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<EventSeat>()
                 .HasOne(es => es.Seat)

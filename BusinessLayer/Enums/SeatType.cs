@@ -1,4 +1,4 @@
-﻿namespace BusinessLayer.Enums
+﻿namespace Ticketing_system.BusinessLayer.Enums
 {
     enum SeatType
     {
