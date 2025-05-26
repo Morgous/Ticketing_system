@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TicketingSystem.Domain\TicketingSystem.Domain.csproj" />
+    <ProjectReference Include="..\TicketingSystem.Repositories\TicketingSystem.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
