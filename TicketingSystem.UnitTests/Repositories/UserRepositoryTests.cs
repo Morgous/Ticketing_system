@@ -17,7 +17,7 @@ namespace TicketingSystem.UnitTests.Repositories
         [Fact]
         public async Task GetAllAsync_ShouldReturnListOfUsers()
         {
-            var users = new List<User> { new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" } };
+            var users = new List<User> { new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" } };
             _userRepositoryMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(users);
 
             var result = await _userRepositoryMock.Object.GetAllAsync();
@@ -31,7 +31,7 @@ namespace TicketingSystem.UnitTests.Repositories
         public async Task GetByIdAsync_ShouldReturnUser_WhenUserExists()
         {
             var userId = Guid.NewGuid();
-            var user = new User { Id = userId, FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var user = new User { Id = userId, FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.GetByIdAsync(userId)).ReturnsAsync(user);
 
             var result = await _userRepositoryMock.Object.GetByIdAsync(userId);
@@ -55,7 +55,7 @@ namespace TicketingSystem.UnitTests.Repositories
         [Fact]
         public async Task AddAsync_ShouldAddUser()
         {
-            var newUser = new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var newUser = new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.AddAsync(newUser)).Returns(Task.CompletedTask);
 
             await _userRepositoryMock.Object.AddAsync(newUser);
@@ -66,7 +66,7 @@ namespace TicketingSystem.UnitTests.Repositories
         [Fact]
         public async Task UpdateAsync_ShouldUpdateUser()
         {
-            var updatedUser = new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var updatedUser = new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.UpdateAsync(updatedUser)).Returns(Task.CompletedTask);
 
             await _userRepositoryMock.Object.UpdateAsync(updatedUser);

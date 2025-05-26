@@ -41,6 +41,5 @@ namespace TicketingSystem.UnitTests.Controllers
             Assert.NotNull(result);
             Assert.Equal(order, result.Value);
         }
-
     }
 }

@@ -46,10 +46,10 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            Id = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             EventDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "My awesome Venue",
-                            Title = "Updated Rock Concert"
+                            Title = "Awesome Rock Concert"
                         });
                 });
 
@@ -94,14 +94,14 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174040"),
+                            Id = new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"),
                             CartId = new Guid("00000000-0000-0000-0000-000000000000"),
                             CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             PriceId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            SeatId = new Guid("00000000-0000-0000-0000-000000000001"),
+                            SeatId = new Guid("6d762474-a6c5-49a1-8461-4a93b2fe4c82"),
                             Status = "Booked",
-                            UserId = new Guid("123e4567-e89b-12d3-a456-426614174000"),
+                            UserId = new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"),
                             Version = 0
                         });
                 });
@@ -129,8 +129,8 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174060"),
-                            OrderId = new Guid("123e4567-e89b-12d3-a456-426614174040"),
+                            Id = new Guid("efb2fbdc-5eb8-4390-ac51-225c30ac0b36"),
+                            OrderId = new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"),
                             PaymentDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Pending"
                         });
@@ -177,111 +177,111 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174030"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            Id = new Guid("a87980ba-e793-4d76-8b67-45c5273a2dde"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = false,
                             Row = "B",
                             SeatNumber = "3",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174031"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            Id = new Guid("31f614f0-938a-4d0f-8945-ec288558e420"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = false,
                             Row = "B",
                             SeatNumber = "4",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
-                            Id = new Guid("00000000-0000-0000-0000-000000000001"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            Id = new Guid("6d762474-a6c5-49a1-8461-4a93b2fe4c82"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "1",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000002"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "2",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000003"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "3",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000004"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "4",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000005"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "5",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000006"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "6",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000007"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "7",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         },
                         new
                         {
                             Id = new Guid("00000000-0000-0000-0000-000000000008"),
-                            EventId = new Guid("123e4567-e89b-12d3-a456-426614174020"),
+                            EventId = new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"),
                             IsAvailable = true,
                             Row = "A",
                             SeatNumber = "8",
-                            SectionId = new Guid("123e4567-e89b-12d3-a456-426614174011"),
+                            SectionId = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
                             Status = "Available",
                             Version = 0
                         });
@@ -309,14 +309,14 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174011"),
-                            Name = "Updated Section A",
+                            Id = new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"),
+                            Name = "Some Section",
                             VenueId = new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8")
                         },
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174012"),
-                            Name = "Updated Section B",
+                            Id = new Guid("ba39cf73-57c4-4f2e-a180-9d6c4ecb03bb"),
+                            Name = "Some Other Section",
                             VenueId = new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8")
                         });
                 });
@@ -353,20 +353,20 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174000"),
+                            Id = new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "john.doe@example.com",
-                            FirstName = "John",
-                            LastName = "Doe",
+                            Email = "Jardani.Jovonovich@example.com",
+                            FirstName = "Jardani",
+                            LastName = "Jovonovich",
                             PhoneNumber = "1234567890"
                         },
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174001"),
+                            Id = new Guid("061734a3-57c6-443b-a454-bc442c6feb34"),
                             DateOfBirth = new DateTime(1992, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "jane.smith@example.com",
-                            FirstName = "Jane",
-                            LastName = "Smith",
+                            Email = "Max.Payne@example.com",
+                            FirstName = "Max",
+                            LastName = "Payne",
                             PhoneNumber = "0987654321"
                         });
                 });
@@ -398,10 +398,10 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("123e4567-e89b-12d3-a456-426614174050"),
+                            Id = new Guid("982ec780-25b9-481d-bbc5-bd5075ff5b7e"),
                             Amount = 150.00m,
                             DateCreated = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("123e4567-e89b-12d3-a456-426614174040"),
+                            OrderId = new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"),
                             Status = "Pending"
                         });
                 });
@@ -429,15 +429,15 @@ namespace TicketingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("123e4567-e89b-12d3-a456-426614174000"),
-                            SeatId = new Guid("123e4567-e89b-12d3-a456-426614174030"),
+                            UserId = new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"),
+                            SeatId = new Guid("a87980ba-e793-4d76-8b67-45c5273a2dde"),
                             ExpiresAt = new DateTime(2025, 6, 1, 16, 30, 0, 0, DateTimeKind.Unspecified),
                             ReservedAt = new DateTime(2025, 6, 1, 14, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            UserId = new Guid("123e4567-e89b-12d3-a456-426614174001"),
-                            SeatId = new Guid("123e4567-e89b-12d3-a456-426614174031"),
+                            UserId = new Guid("061734a3-57c6-443b-a454-bc442c6feb34"),
+                            SeatId = new Guid("31f614f0-938a-4d0f-8945-ec288558e420"),
                             ExpiresAt = new DateTime(2025, 6, 2, 16, 30, 0, 0, DateTimeKind.Unspecified),
                             ReservedAt = new DateTime(2025, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified)
                         });

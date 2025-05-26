@@ -10,8 +10,8 @@ public class Program
         var tasks = new List<Task>();
         var successfulResponses = 0;
         var cartId = Guid.NewGuid();
-        var eventId = Guid.Parse("123E4567-E89B-12D3-A456-426614174020");
-        var seatId = Guid.Parse("00000000-0000-0000-0000-000000000001");
+        var eventId = Guid.Parse("b1e8c82c-736f-4a6b-9f10-15d562ee5692");
+        var seatId = Guid.Parse("6d762474-a6c5-49a1-8461-4a93b2fe4c82");
         var version = 0;
 
         for (int i = 0; i < 3; i++)

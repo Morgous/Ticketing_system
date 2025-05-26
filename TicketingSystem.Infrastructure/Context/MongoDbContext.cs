@@ -32,8 +32,8 @@ namespace TicketingSystem.Infrastructure.Context
             {
                 Users.InsertMany(new List<User>
                 {
-                   new User { Id = Guid.Parse("123e4567-e89b-12d3-a456-426614174000"), FirstName = "Max", LastName = "Payne", Email = "max.payne@example.com", PhoneNumber = "1234567890", DateOfBirth = new DateTime(1990, 1, 1) },
-                   new User { Id = Guid.Parse("123e4567-e89b-12d3-a456-426614174001"), FirstName = "John", LastName = "Wick", Email = "john.wick@example.com", PhoneNumber = "0987654321", DateOfBirth = new DateTime(1992, 5, 15) }
+                   new User { Id = Guid.Parse("b0b79e20-0e5f-41b7-adc9-957847f06fe6"), FirstName = "Max", LastName = "Payne", Email = "max.payne@example.com", PhoneNumber = "1234567890", DateOfBirth = new DateTime(1990, 1, 1) },
+                   new User { Id = Guid.Parse("061734a3-57c6-443b-a454-bc442c6feb34"), FirstName = "Jardani", LastName = "Wick", Email = "Jardani.wick@example.com", PhoneNumber = "0987654321", DateOfBirth = new DateTime(1992, 5, 15) }
                 });
             }
         }

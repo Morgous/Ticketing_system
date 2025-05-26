@@ -26,7 +26,7 @@ namespace TicketingSystem.UnitTests.Controllers
         [Fact]
         public async Task GetAllUsers_ShouldReturnOkResult_WithListOfUsers()
         {
-            var users = new List<User> { new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" } };
+            var users = new List<User> { new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" } };
             _userRepositoryMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(users);
 
             var result = await _controller.GetAllUsers() as OkObjectResult;
@@ -40,7 +40,7 @@ namespace TicketingSystem.UnitTests.Controllers
         public async Task GetUserById_ShouldReturnOkResult_WhenUserExists()
         {
             var userId = Guid.NewGuid();
-            var user = new User { Id = userId, FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var user = new User { Id = userId, FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.GetByIdAsync(userId)).ReturnsAsync(user);
 
             var result = await _controller.GetUserById(userId) as OkObjectResult;
@@ -64,7 +64,7 @@ namespace TicketingSystem.UnitTests.Controllers
         [Fact]
         public async Task CreateUser_ShouldReturnCreatedAtActionResult()
         {
-            var newUser = new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var newUser = new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.AddAsync(newUser)).Returns(Task.CompletedTask);
 
             var result = await _controller.CreateUser(newUser) as CreatedAtActionResult;
@@ -78,7 +78,7 @@ namespace TicketingSystem.UnitTests.Controllers
         public async Task UpdateUser_ShouldReturnNoContent_WhenUserIsUpdated()
         {
             var userId = Guid.NewGuid();
-            var updatedUser = new User { Id = userId, FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var updatedUser = new User { Id = userId, FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
             _userRepositoryMock.Setup(repo => repo.UpdateAsync(updatedUser)).Returns(Task.CompletedTask);
 
             var result = await _controller.UpdateUser(userId, updatedUser);
@@ -90,7 +90,7 @@ namespace TicketingSystem.UnitTests.Controllers
         public async Task UpdateUser_ShouldReturnBadRequest_WhenUserIdDoesNotMatch()
         {
             var userId = Guid.NewGuid();
-            var updatedUser = new User { Id = Guid.NewGuid(), FirstName = "John", LastName = "Doe", Email = "john.doe@example.com" };
+            var updatedUser = new User { Id = Guid.NewGuid(), FirstName = "Jardani", LastName = "Jovonovich", Email = "Jardani.Jovonovich@example.com" };
 
             var result = await _controller.UpdateUser(userId, updatedUser);
 

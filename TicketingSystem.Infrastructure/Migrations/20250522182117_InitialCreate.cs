@@ -183,30 +183,30 @@ namespace TicketingSystem.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Events",
                 columns: new[] { "Id", "EventDate", "Location", "Title" },
-                values: new object[] { new Guid("123e4567-e89b-12d3-a456-426614174020"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "My awesome Venue", "Updated Rock Concert" });
+                values: new object[] { new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "My awesome Venue", "Awesome Rock Concert" });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "CartId", "CreatedAt", "EventId", "PaymentId", "PriceId", "SeatId", "Status", "UserId", "Version" },
-                values: new object[] { new Guid("123e4567-e89b-12d3-a456-426614174040"), new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("123e4567-e89b-12d3-a456-426614174020"), null, new Guid("00000000-0000-0000-0000-000000000000"), new Guid("00000000-0000-0000-0000-000000000001"), "Booked", new Guid("123e4567-e89b-12d3-a456-426614174000"), 0 });
+                values: new object[] { new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"), new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), null, new Guid("00000000-0000-0000-0000-000000000000"), new Guid("6d762474-a6c5-49a1-8461-4a93b2fe4c82"), "Booked", new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"), 0 });
 
             migrationBuilder.InsertData(
                 table: "Payments",
                 columns: new[] { "Id", "OrderId", "PaymentDate", "Status" },
-                values: new object[] { new Guid("123e4567-e89b-12d3-a456-426614174060"), new Guid("123e4567-e89b-12d3-a456-426614174040"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pending" });
+                values: new object[] { new Guid("efb2fbdc-5eb8-4390-ac51-225c30ac0b36"), new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pending" });
 
             migrationBuilder.InsertData(
                 table: "Transactions",
                 columns: new[] { "Id", "Amount", "DateCreated", "OrderId", "Status" },
-                values: new object[] { new Guid("123e4567-e89b-12d3-a456-426614174050"), 150.00m, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("123e4567-e89b-12d3-a456-426614174040"), "Pending" });
+                values: new object[] { new Guid("982ec780-25b9-481d-bbc5-bd5075ff5b7e"), 150.00m, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("9e5a8b14-42bf-4b1c-9242-3fc0f57d1738"), "Pending" });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "DateOfBirth", "Email", "FirstName", "LastName", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { new Guid("123e4567-e89b-12d3-a456-426614174000"), new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "john.doe@example.com", "John", "Doe", "1234567890" },
-                    { new Guid("123e4567-e89b-12d3-a456-426614174001"), new DateTime(1992, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "jane.smith@example.com", "Jane", "Smith", "0987654321" }
+                    { new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"), new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jardani.Jovonovich@example.com", "Jardani", "Jovonovich", "1234567890" },
+                    { new Guid("061734a3-57c6-443b-a454-bc442c6feb34"), new DateTime(1992, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Max.Payne@example.com", "Max", "Payne", "0987654321" }
                 });
 
             migrationBuilder.InsertData(
@@ -219,8 +219,8 @@ namespace TicketingSystem.Infrastructure.Migrations
                 columns: new[] { "Id", "Name", "VenueId" },
                 values: new object[,]
                 {
-                    { new Guid("123e4567-e89b-12d3-a456-426614174011"), "Updated Section A", new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8") },
-                    { new Guid("123e4567-e89b-12d3-a456-426614174012"), "Updated Section B", new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8") }
+                    { new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Some Section", new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8") },
+                    { new Guid("ba39cf73-57c4-4f2e-a180-9d6c4ecb03bb"), "Some Other Section", new Guid("bb578f5f-836d-4767-8e98-58d0afbc3ff8") }
                 });
 
             migrationBuilder.InsertData(
@@ -228,16 +228,16 @@ namespace TicketingSystem.Infrastructure.Migrations
                 columns: new[] { "Id", "EventId", "IsAvailable", "Row", "SeatNumber", "SectionId", "Status", "Version" },
                 values: new object[,]
                 {
-                    { new Guid("00000000-0000-0000-0000-000000000001"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "1", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000002"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "2", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000003"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "3", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000004"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "4", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000005"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "5", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000006"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "6", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000007"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "7", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("00000000-0000-0000-0000-000000000008"), new Guid("123e4567-e89b-12d3-a456-426614174020"), true, "A", "8", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("123e4567-e89b-12d3-a456-426614174030"), new Guid("123e4567-e89b-12d3-a456-426614174020"), false, "B", "3", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 },
-                    { new Guid("123e4567-e89b-12d3-a456-426614174031"), new Guid("123e4567-e89b-12d3-a456-426614174020"), false, "B", "4", new Guid("123e4567-e89b-12d3-a456-426614174011"), "Available", 0 }
+                    { new Guid("6d762474-a6c5-49a1-8461-4a93b2fe4c82"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "1", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000002"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "2", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000003"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "3", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000004"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "4", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000005"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "5", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000006"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "6", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000007"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "7", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("00000000-0000-0000-0000-000000000008"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), true, "A", "8", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("a87980ba-e793-4d76-8b67-45c5273a2dde"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), false, "B", "3", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 },
+                    { new Guid("31f614f0-938a-4d0f-8945-ec288558e420"), new Guid("b1e8c82c-736f-4a6b-9f10-15d562ee5692"), false, "B", "4", new Guid("03dbdd25-660b-4980-a918-c8d918594d8e"), "Available", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -245,8 +245,8 @@ namespace TicketingSystem.Infrastructure.Migrations
                 columns: new[] { "SeatId", "UserId", "ExpiresAt", "ReservedAt" },
                 values: new object[,]
                 {
-                    { new Guid("123e4567-e89b-12d3-a456-426614174030"), new Guid("123e4567-e89b-12d3-a456-426614174000"), new DateTime(2025, 6, 1, 16, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 6, 1, 14, 30, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("123e4567-e89b-12d3-a456-426614174031"), new Guid("123e4567-e89b-12d3-a456-426614174001"), new DateTime(2025, 6, 2, 16, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("a87980ba-e793-4d76-8b67-45c5273a2dde"), new Guid("b0b79e20-0e5f-41b7-adc9-957847f06fe6"), new DateTime(2025, 6, 1, 16, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 6, 1, 14, 30, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("31f614f0-938a-4d0f-8945-ec288558e420"), new Guid("061734a3-57c6-443b-a454-bc442c6feb34"), new DateTime(2025, 6, 2, 16, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 6, 2, 14, 30, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(
