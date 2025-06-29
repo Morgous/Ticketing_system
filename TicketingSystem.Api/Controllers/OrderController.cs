@@ -90,17 +90,30 @@ namespace TicketingSystem.API.Controllers
         }
 
         [HttpPost("carts/{cartId}")]
-        public async Task<IActionResult> AddToCart(Guid cartId, [FromBody] CreateOrderDto newOrderDTO)
+        public async Task<IActionResult> AddToCart(string cartId, [FromBody] CreateOrderDto newOrderDTO)
         {
-            var newOrder = _mapper.Map<Order>(newOrderDTO);
-            newOrder.Id = Guid.NewGuid();
-            newOrder.CartId = cartId;
-            newOrder.Status = OrderStatus.Pending;
-            newOrder.CreatedAt = DateTime.UtcNow;
+            try
+            {
+                if (!Guid.TryParse(cartId, out Guid id))
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest,
+                        new { message = "CartId should be Guid" });
+                }
 
-            await _orderService.AddOrderAsync(newOrder);
-            await _orderService.InvalidateEventCache(newOrder.EventId);
-            return CreatedAtAction(nameof(GetOrderById), new { id = newOrder.Id }, newOrder);
+                var newOrder = _mapper.Map<Order>(newOrderDTO);
+                newOrder.Id = Guid.NewGuid();
+                newOrder.CartId = Guid.Parse(cartId);
+                newOrder.Status = OrderStatus.Pending;
+                newOrder.CreatedAt = DateTime.UtcNow;
+
+                await _orderService.AddOrderAsync(newOrder);
+                await _orderService.InvalidateEventCache(newOrder.EventId);
+                return CreatedAtAction(nameof(GetOrderById), new { id = newOrder.Id }, newOrder);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
+            }
         }
 
         [HttpDelete("carts/{cartId}/events/{eventId}/seats/{seatId}")]
@@ -138,7 +151,7 @@ namespace TicketingSystem.API.Controllers
                 await _orderService.InvalidateEventCache(order.EventId);
             }
 
-            return Ok(new { PaymentId = paymentId });
+            return Ok(paymentId);
         }
 
         [HttpPost("carts/{cartId}/pessimistic")]
