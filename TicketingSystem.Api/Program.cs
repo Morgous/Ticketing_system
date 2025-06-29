@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 using TicketingService.Application.Interfaces;
 using TicketingService.Application.Services;
 using TicketingSystem.Application.Services;
@@ -12,69 +9,90 @@ using TicketingSystem.Repositories.Interfaces;
 
 public class Program
 {
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+	public static void Main(string[] args)
+	{
+		var app = CreateApp(args);
+		if (!app.Environment.IsEnvironment("Test"))
+		{
+			using (var scope = app.Services.CreateScope())
+			{
+				var services = scope.ServiceProvider;
+				var dbContext = services.GetRequiredService<AppDbContext>();
+				dbContext.Database.Migrate();
+			}
+		}
+		else
+		{
+			using (var scope = app.Services.CreateScope())
+			{
+				var services = scope.ServiceProvider;
 
-        BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+				var dbContext = services.GetRequiredService<AppDbContext>();
+				dbContext.Database.EnsureCreated();
+			}
+		}
 
-        builder.Configuration
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddUserSecrets<Program>()
-            .AddEnvironmentVariables();
+		app.Run();
+	}
 
-        builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+	public static WebApplication CreateApp(string[] args)
+	{
+		var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
-        builder.Services.AddSingleton<IMongoDbContext, MongoDbContext>();
 
-        builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+		builder.Configuration
+			.SetBasePath(Directory.GetCurrentDirectory())
+			.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+			.AddUserSecrets<Program>()
+			.AddEnvironmentVariables();
+		builder.Services.AddDbContext<AppDbContext>(options =>
+		{
+			if (!builder.Environment.IsEnvironment("Test"))
+			{
+				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+			}
+		});
 
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
-        builder.Services.AddScoped<IOrderRepository, OrderRepository>(); 
-        builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+		builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+		builder.Services.AddSingleton<IMongoDbContext, MongoDbContext>();
 
-        builder.Services.AddScoped<UserService>();
-        builder.Services.AddScoped<EventService>();
-        builder.Services.AddScoped<VenueService>();
-        builder.Services.AddScoped<OrderService>();
-        builder.Services.AddScoped<PaymentService>();
+		builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+		builder.Services.AddScoped<IUserRepository, UserRepository>();
+		builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+		builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 
-        builder.Services.AddSingleton<ICacheService, CacheService>();
+		builder.Services.AddScoped<UserService>();
+		builder.Services.AddScoped<EventService>();
+		builder.Services.AddScoped<VenueService>();
+		builder.Services.AddScoped<OrderService>();
+		builder.Services.AddScoped<PaymentService>();
 
-        builder.Services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = builder.Configuration.GetConnectionString("RedisConnection");
-            options.InstanceName = "SomeInstance";
-        });
+		builder.Services.AddSingleton<ICacheService, CacheService>();
 
-        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+		builder.Services.AddStackExchangeRedisCache(options =>
+		{
+			options.Configuration = builder.Configuration.GetConnectionString("RedisConnection");
+			options.InstanceName = "SomeInstance";
+		});
 
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+		builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-        var app = builder.Build();
+		builder.Services.AddControllers();
+		builder.Services.AddEndpointsApiExplorer();
+		builder.Services.AddSwaggerGen();
 
-        using (var scope = app.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
+		var app = builder.Build();
 
-            var dbContext = services.GetRequiredService<AppDbContext>();
-            dbContext.Database.Migrate();
-        }
+		if (app.Environment.IsDevelopment())
+		{
+			app.UseSwagger();
+			app.UseSwaggerUI();
+		}
 
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+		app.UseHttpsRedirection();
+		app.UseAuthorization();
+		app.MapControllers();
 
-        app.UseHttpsRedirection();
-        app.UseAuthorization();
-        app.MapControllers();
-        app.Run();
-    }
+		return app;
+	}
 }

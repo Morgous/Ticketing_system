@@ -41,7 +41,7 @@ namespace TicketingService.Application.Services
 
         public async Task InvalidateEventCache(Guid eventId)
         {
-            await _cache.RemoveAsync($"Event_{eventId}");
+            //await _cache.RemoveAsync($"Event_{eventId}");
         }
         public async Task<bool> TryBookSeatPessimisticAsync(Guid eventId, Guid seatId)
         {

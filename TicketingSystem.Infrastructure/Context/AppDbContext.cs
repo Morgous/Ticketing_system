@@ -16,8 +16,9 @@ namespace TicketingSystem.Infrastructure.Context
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
